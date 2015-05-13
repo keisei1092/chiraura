@@ -49,9 +49,8 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'less-rails' # Railsでless Bootstrapはlessで書かれている
-
 gem 'twitter-bootstrap-rails'
-
 gem 'font-awesome-rails'
-
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'bootswatch-rails'
