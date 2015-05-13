@@ -3,8 +3,10 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 <%= form_for Post.new, :url => { :action => 'create' } do |f| -%>
-  <%= text_area :post, :content , :maxlength => "140" %>
-  <%= submit_tag 'Post', :class => "btn btn-primary" %>
+  <%= text_area :post, :content , :maxlength => "140", :size => "50x3" %>
+  <button class="btn btn-sm btn-primary">
+    <%= fa_icon "pencil" %> Post
+  </button>
 <% end -%>
 <table class="table table-striped">
   <thead>
@@ -12,23 +14,18 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:content) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @posts.each do |post| %>
       <tr>
         <td><%= link_to post.id, post_path(post) %></td>
-        <td><%= post.content %></td>
-        <td><%=l post.created_at %></td>
         <td>
-          <%= link_to (fa_icon "pencil-square-o"),
-                      edit_post_path(post), :class => 'btn btn-default btn-xs' %>
-          <%= link_to (fa_icon "trash-o"),
-                      post_path(post),
-                      :method => :delete,
-                      :class => 'btn btn-xs btn-danger' %>
+          <%= post.content %><br>
+          <%= link_to (fa_icon "pencil-square-o"), edit_post_path(post) %>
+          <%= link_to (fa_icon "trash-o"), post_path(post), :method => :delete %>
         </td>
+        <td><%=l post.created_at, format: :short %></td>
       </tr>
     <% end %>
   </tbody>
