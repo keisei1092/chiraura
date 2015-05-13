@@ -1,6 +1,7 @@
-<%- model_class = Post -%>
+﻿<%- model_class = Post -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <!-- <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1> -->
+  <h1>はきだめ</h1>
 </div>
 <%= form_for Post.new, :url => { :action => 'create' } do |f| -%>
   <%= text_area :post, :content , :maxlength => "140", :size => "50x3" %>
